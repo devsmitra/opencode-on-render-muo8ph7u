@@ -2,6 +2,7 @@
 set -euo pipefail
 
 export XDG_DATA_HOME="${XDG_DATA_HOME:-/root/project-data}"
+export DATA_DIR="${DATA_DIR:-${XDG_DATA_HOME}/9router}"
 
 WORKSPACE_DIR="${WORKSPACE_DIR:-/root/project-data/workspace}"
 OPENCODE_SERVER_COMMAND="${OPENCODE_SERVER_COMMAND:-web}"
@@ -10,7 +11,7 @@ OPENCODE_CONFIG_DIR="${XDG_CONFIG_HOME:-/root/.config}/opencode"
 AUTH_FILE="${OPENCODE_DATA_DIR}/auth.json"
 GLOBAL_CONFIG_FILE="${OPENCODE_CONFIG_DIR}/opencode.json"
 
-mkdir -p "$WORKSPACE_DIR" "$OPENCODE_DATA_DIR" "$OPENCODE_CONFIG_DIR"
+mkdir -p "$WORKSPACE_DIR" "$OPENCODE_DATA_DIR" "$OPENCODE_CONFIG_DIR" "$DATA_DIR"
 
 directory_is_empty() {
   [ -z "$(ls -A "$1" 2>/dev/null)" ]
@@ -195,5 +196,5 @@ case "$OPENCODE_SERVER_COMMAND" in
 esac
 
 cd "$WORKSPACE_DIR"
-exec 9router --port "${PORT:-10000}"
+exec 9router --port "${PORT:-10000}" --tray --skip-update --no-browser --log
 # exec opencode "$OPENCODE_SERVER_COMMAND" --hostname 0.0.0.0 --port "${PORT:-10000}"
