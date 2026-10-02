@@ -21,6 +21,10 @@ services:
         value: opencode
       - key: OPENCODE_SERVER_COMMAND
         value: web
+      - key: INITIAL_PASSWORD
+        generateValue: true
+      - key: JWT_SECRET
+        generateValue: true
       - key: ANTHROPIC_API_KEY
         sync: false
       - key: OPENROUTER_API_KEY
