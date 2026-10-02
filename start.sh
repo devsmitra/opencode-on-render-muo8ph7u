@@ -195,4 +195,5 @@ case "$OPENCODE_SERVER_COMMAND" in
 esac
 
 cd "$WORKSPACE_DIR"
-exec opencode "$OPENCODE_SERVER_COMMAND" --hostname 0.0.0.0 --port "${PORT:-10000}"
+exec 9router
+# exec opencode "$OPENCODE_SERVER_COMMAND" --hostname 0.0.0.0 --port "${PORT:-10000}"

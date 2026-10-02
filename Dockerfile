@@ -17,6 +17,7 @@ RUN npm install -g \
         opencode-ai@latest \
         typescript-language-server@latest \
         typescript@latest \
+        9router@latest \
     && npm cache clean --force
 
 RUN curl -fsSL https://raw.githubusercontent.com/render-oss/render-opencode-plugin/main/install.sh \
